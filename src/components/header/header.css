@@ -1,0 +1,43 @@
+header{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    background-color:  #014b1c;
+   box-sizing: border-box;
+    height: 60px;
+    padding:20px;
+   
+
+}
+
+header nav a{
+    text-decoration: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+    background-color:#014b1c;
+    width: 100%;
+    display: flex;
+    padding: 10px;
+    margin: 2px;
+    
+}
+
+
+
+
+header nav a:hover{
+    background-color:#198754;
+    color: white;
+    transition: 0.5s;
+}
+
+header nav a.active{
+    background-color:#198754;
+}
+
+.dropdown-menu{
+    background-color:#014b1c; 
+    padding: 10px;
+    border-radius: 5px;
+}
