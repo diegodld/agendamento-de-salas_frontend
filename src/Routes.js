@@ -5,6 +5,7 @@ import Registers from "./components/entities/registers/Registers";
 import TeacherForm from "./components/entities/teachers/form/TeacherForm";
 import Employees from "./components/entities/employees";
 import Rooms from "./components/entities/rooms";
+import Footer from "./components/footer/Footer";
 export default function AppRoutes() {
   return (
     <>
@@ -16,6 +17,7 @@ export default function AppRoutes() {
           <Route path="/employees" element={<Employees />} />
           <Route path="/rooms" element={<Rooms />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </>
   );
