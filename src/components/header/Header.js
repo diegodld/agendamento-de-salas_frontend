@@ -22,9 +22,9 @@ export default function Header() {
                 Cadastrar
               </Dropdown.Toggle>
               <DropdownMenu variant="light">
-                <NavLink to="/registerTeacher">Novo Professor</NavLink>
-                <NavLink to="/registerEmployee">Novo Funcionário</NavLink>
-                <NavLink to="/registerRoom">Nova Sala</NavLink>
+                <NavLink to="/teachers">Novo Professor</NavLink>
+                <NavLink to="/employees">Novo Funcionário</NavLink>
+                <NavLink to="/rooms">Nova Sala</NavLink>
               </DropdownMenu>
             </Dropdown>
           </nav>

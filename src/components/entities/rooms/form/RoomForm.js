@@ -3,9 +3,7 @@ import { Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import RoomList from "../list/RoomList";
 import { createRoom } from "../controller/RoomController.js";
-
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../style.css";
 
 export default function TeacherForm() {
   useEffect(() => {
