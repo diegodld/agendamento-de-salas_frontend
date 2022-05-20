@@ -1,35 +1,21 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import axios from "axios";
-import UsersList from "../list/UserList";
+import { RegisterEmployee } from "../controller/EmployeeController";
+import EmployeeList from "../list/EmployeeList";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./form.css";
 
-export default function UserForm() {
-  useEffect(() => {
-    document.title = "Register";
-  }, []);
+export default function EmployeeForm() {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  function onSubmit(data, e) {
-    axios
-      .post("/teachers", data)
-      .then(() => {
-        alert("Dados cadastrados com sucesso!");
-        e.target.reset();
-      })
-      .catch((err) => console.log(err));
-  }
-
   return (
     <div className="container">
-      <h2>Cadastro de Professor</h2>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <h2>Cadastro de Funcionário</h2>
+      <form onSubmit={handleSubmit(RegisterEmployee)}>
         <section className="field-name">
           <label htmlFor="nome">Nome</label>
           <div className="input-name">
@@ -59,7 +45,7 @@ export default function UserForm() {
         </Button>
       </form>
 
-      <UsersList />
+      <EmployeeList />
     </div>
   );
 }

@@ -1,4 +1,6 @@
 import axios from "axios";
-import "./dotenv/config";
+// import "dotenv/config";
 
-axios.defaults.baseURL = process.env.BASE_URL;
+export default axios.create({
+  baseURL: "http://localhost:4000",
+});

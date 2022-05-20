@@ -1,7 +1,6 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import OptionsTeacher from "./OptionsTeacher.js";
 
@@ -42,12 +41,12 @@ export default function RegisterForm() {
           <div className="input-contact">
             <input
               type="text"
-              name="telefone"
+              name="sala"
               id="telefone"
               {...register("sala", { required: true })}
             />
           </div>
-          {errors.telefone && <p>Insira um Telefone</p>}
+          {errors.sala && <p>Insira a sala</p>}
         </section>
         <Button type="submit" variant="success">
           Adicionar

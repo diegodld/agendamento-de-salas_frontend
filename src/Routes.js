@@ -1,17 +1,18 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import UserForm from "./components/users/form/UserForm";
 import Header from "./components/header/Header";
-// import UsersList from "./components/users/list/UserList";
-import Registers from "./components/registers/Registers";
+import Registers from "./components/entities/registers/Registers";
+import TeacherForm from "./components/entities/teachers/form/TeacherForm";
+import Employees from "./components/entities/employees";
 export default function AppRoutes() {
   return (
     <>
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/registerUser" element={<UserForm />} />
+          <Route path="/registerTeacher" element={<TeacherForm />} />
           <Route path="/" element={<Registers />} />
+          <Route path="/registerEmployee" element={<Employees />} />
         </Routes>
       </BrowserRouter>
     </>

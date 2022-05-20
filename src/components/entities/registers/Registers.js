@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import axios from "../../../api/axios";
 import { Table } from "react-bootstrap";
 import RegisterForm from "./RegisterForm.js";
 
@@ -16,7 +16,7 @@ export default function Registers() {
   }
 
   return (
-    <div>
+    <div className="container">
       <RegisterForm />
       <h1>Registros</h1>
       <Table striped bordered hover variant="light">
@@ -25,9 +25,9 @@ export default function Registers() {
             <th>Id</th>
             <th>Professor</th>
             <th>Sala</th>
-            <th>Data_solicitacao</th>
+            <th>Data_solicitação</th>
             <th>Entregue_por</th>
-            <th>Data_devolucao</th>
+            <th>Data_devolução</th>
             <th>Recebido_por</th>
             <th>Contato</th>
           </tr>
@@ -41,9 +41,9 @@ export default function Registers() {
                     <td>{reg.Id}</td>
                     <td>{reg.Professor}</td>
                     <td>{reg.Sala}</td>
-                    <td>{reg.Data_solicitacao}</td>
+                    <td>{reg.Data_solicitação}</td>
                     <td>{reg.Entregue_por}</td>
-                    <td>{reg.Data_devolucao}</td>
+                    <td>{reg.Data_devolução}</td>
                     <td>{reg.Recebido_por}</td>
                     <td>{reg.Contato}</td>
                   </tr>
