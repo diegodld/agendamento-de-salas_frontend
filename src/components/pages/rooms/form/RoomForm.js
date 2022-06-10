@@ -1,14 +1,13 @@
 import React, { useEffect } from "react";
 import { Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import axios from "axios";
-import TeacherList from "../list/TeacherList";
+import RoomList from "../list/RoomList";
+import { createRoom } from "../controller/RoomController.js";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./form.css";
 
 export default function TeacherForm() {
   useEffect(() => {
-    document.title = "Register";
+    document.title = "Salas";
   }, []);
   const {
     register,
@@ -16,22 +15,12 @@ export default function TeacherForm() {
     formState: { errors },
   } = useForm();
 
-  function onSubmit(data, e) {
-    axios
-      .post("/teachers", data)
-      .then(() => {
-        alert("Dados cadastrados com sucesso!");
-        e.target.reset();
-      })
-      .catch((err) => console.log(err));
-  }
-
   return (
     <div className="container">
-      <h2>Cadastro de Professor</h2>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <h2>Cadastro de Sala</h2>
+      <form onSubmit={handleSubmit(createRoom)}>
         <section className="field-name">
-          <label htmlFor="nome">Nome</label>
+          <label htmlFor="nome">Descrição</label>
           <div className="input-name">
             <input
               type="text"
@@ -40,26 +29,26 @@ export default function TeacherForm() {
               {...register("nome", { required: true })}
             />
           </div>
-          {errors.nome && <p>Insira um nome</p>}
+          {errors.nome && <p>Insira uma descrição</p>}
         </section>
-        <section className="field-contact">
-          <label htmlFor="telefone">Telefone</label>
-          <div className="input-contact">
+        <section className="field-key">
+          <label htmlFor="chave">Número da Chave</label>
+          <div className="chave">
             <input
               type="text"
-              name="telefone"
-              id="telefone"
-              {...register("telefone", { required: true })}
+              name="chave"
+              id="chave"
+              {...register("chave", { required: true })}
             />
           </div>
-          {errors.telefone && <p>Insira um Telefone</p>}
+          {errors.chave && <p>O campo "chave" é obrigatório.</p>}
         </section>
         <Button type="submit" variant="success">
           Cadastrar
         </Button>
       </form>
 
-      <TeacherList />
+      <RoomList />
     </div>
   );
 }

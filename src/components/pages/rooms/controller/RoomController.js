@@ -5,8 +5,9 @@ const createRoom = async (data, e) => {
     await axios.post("/rooms", data);
     window.alert("Dados cadastrados com sucesso!");
     e.target.reset();
+    window.location.reload();
   } catch (error) {
-    throw error;
+    alert(error);
   }
 };
 
@@ -15,10 +16,23 @@ const deleteRoom = async (id) => {
     try {
       await axios.delete(`/rooms/${id}`);
       window.alert(`Registro: ${id} excluido com sucesso!`);
+      window.location.reload();
     } catch (error) {
       alert(error);
     }
   }
 };
 
-export { createRoom, deleteRoom };
+const updateRoom = async (data, e) => {
+  try {
+    console.log(data);
+    await axios.put(`rooms/`, data);
+    alert("Dados atualizados com sucesso!");
+    e.target.reset();
+    window.location.reload();
+  } catch (error) {
+    alert(error);
+  }
+};
+
+export { createRoom, deleteRoom, updateRoom };

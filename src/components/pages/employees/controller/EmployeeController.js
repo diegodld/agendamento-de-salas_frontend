@@ -17,6 +17,7 @@ const upadteEmployee = async (data, e) => {
     await axios.put(`employees/`, data);
     alert("Dados atualizados com sucesso!");
     e.target.reset();
+    window.location.reload();
   } catch (error) {
     alert(error);
   }

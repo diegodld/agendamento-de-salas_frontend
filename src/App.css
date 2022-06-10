@@ -52,10 +52,8 @@ body {
   }
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.conteiner h2 {
+  margin-top: 16px;
 }
 
 form {
@@ -67,31 +65,36 @@ form {
   margin-bottom: 50px;
 }
 
-label {
-  padding-left: 10px;
+form p {
+  color: red;
 }
 
 .field-id input {
-  margin: 10px;
+  margin: 10px 0;
 
   display: block;
 }
 
+.field-key input {
+  margin: 10px 0;
+
+  display: inline-block;
+}
+
 .field-name input {
-  margin: 10px;
+  margin: 10px 0;
 
   display: inline-block;
 }
 
 .field-contact input {
-  margin: 10px;
+  margin: 10px 0;
 
   display: inline-block;
 }
 
 button {
   margin-top: 5px;
-  margin-left: 10px;
 }
 
 .bt-edit {
@@ -100,6 +103,7 @@ button {
   width: 40px;
   border-radius: 5px;
   padding-bottom: 2px;
+  margin: 10px;
 }
 
 .bt-delete {
@@ -133,19 +137,36 @@ button {
   justify-content: space-between;
 }
 
+.modal-header button {
+  border: none;
+}
+
 .modal {
   position: relative;
   display: block;
   width: 400px;
-  height: 400px;
+  height: 450px;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 2px 2px rgba(0, 0, 0, 0.6);
   z-index: 1000;
   background-color: aliceblue;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .ReactModal__Body--open {
   overflow: hidden;
+}
+
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
 }

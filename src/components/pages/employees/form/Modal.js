@@ -16,14 +16,14 @@ export default function Modal({ close, show, data }) {
   } = useForm();
 
   useEffect(() => {
-    if (data.length != 0) {
+    if (data.length !== 0) {
       reset({
         id_funcionario: data[0].id_funcionario,
         nome: data[0].nome,
         telefone: data[0].telefone,
       });
     }
-  }, [data]);
+  }, [reset, data]);
 
   return (
     <ReactModal
@@ -35,11 +35,11 @@ export default function Modal({ close, show, data }) {
     >
       <div className="modal-header">
         <h3>Editar Funcionário</h3>
-        <a onClick={close}>
+        <button onClick={close}>
           <i className="bt-close">
             <FaWindowClose size={30} />
           </i>
-        </a>
+        </button>
       </div>
       <form onSubmit={handleSubmit(upadteEmployee)}>
         <section className="field-id">
@@ -74,13 +74,11 @@ export default function Modal({ close, show, data }) {
               {...register("telefone", { required: true })}
             />
           </div>
-          {errors.telefone && <p>Insira um Telefone</p>}
+          {errors.telefone && (
+            <p style={{ color: "red" }}>Insira um Telefone</p>
+          )}
         </section>
-        <Button
-          type="submit"
-          variant="success"
-          //   onClick={() => upadteEmployee(employee.id_funcionario)}
-        >
+        <Button type="submit" variant="success">
           Atualizar
         </Button>
       </form>

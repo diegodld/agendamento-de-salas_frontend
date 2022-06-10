@@ -4,7 +4,6 @@ import { useEffect, useState, useCallback } from "react";
 import { Table } from "react-bootstrap";
 import { BsPencilSquare, BsTrash } from "react-icons/bs";
 import _delete from "../controller/teacherController.js";
-import "./list.css";
 
 export default function TeacherList() {
   const [teachers, setTeacher] = useState([]);
