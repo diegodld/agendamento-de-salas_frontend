@@ -26,7 +26,7 @@ export default function RegisterForm() {
   }
 
   return (
-    <div className="container">
+    <div>
       <h2>Requisições</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <section className="field-teacher">

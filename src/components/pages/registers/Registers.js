@@ -20,7 +20,7 @@ export default function Registers() {
   return (
     <div className="container">
       <RegisterForm />
-      <h1>Registros</h1>
+      <h2>Registros</h2>
       <div className="content">
         <Table striped bordered hover variant="light">
           <thead>
