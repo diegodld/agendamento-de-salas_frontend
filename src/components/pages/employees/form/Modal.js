@@ -6,8 +6,6 @@ import { FaWindowClose } from "react-icons/fa";
 import { upadteEmployee } from "../controller/EmployeeController";
 
 export default function Modal({ close, show, data }) {
-  console.log(data);
-
   const {
     register,
     handleSubmit,

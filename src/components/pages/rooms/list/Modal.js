@@ -6,8 +6,6 @@ import { FaWindowClose } from "react-icons/fa";
 import { updateRoom } from "../controller/RoomController.js";
 
 export default function Modal({ close, show, data }) {
-  console.log(data);
-
   const {
     register,
     handleSubmit,

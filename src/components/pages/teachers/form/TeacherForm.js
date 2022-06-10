@@ -3,11 +3,12 @@ import { Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import TeacherList from "../list/TeacherList";
+import { createTeacher } from "../controller/teacherController";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function TeacherForm() {
   useEffect(() => {
-    document.title = "Register";
+    document.title = "Professores";
   }, []);
   const {
     register,
@@ -28,7 +29,7 @@ export default function TeacherForm() {
   return (
     <div className="container">
       <h2>Cadastro de Professor</h2>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(createTeacher)}>
         <section className="field-name">
           <label htmlFor="nome">Nome</label>
           <div className="input-name">

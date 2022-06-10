@@ -3,7 +3,7 @@ import axios from "../../../../api/axios.js";
 import { useEffect, useState, useCallback } from "react";
 import { Table } from "react-bootstrap";
 import { BsPencilSquare, BsTrash } from "react-icons/bs";
-import _delete from "../controller/teacherController.js";
+import { deleteTeacher } from "../controller/teacherController";
 
 export default function TeacherList() {
   const [teachers, setTeacher] = useState([]);
@@ -42,7 +42,7 @@ export default function TeacherList() {
                       </button>
                       <button
                         className="bt-delete"
-                        onClick={() => _delete(teacher.id_professor)}
+                        onClick={() => deleteTeacher(teacher.id_professor)}
                       >
                         <BsTrash />
                       </button>
