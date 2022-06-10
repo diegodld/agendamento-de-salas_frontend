@@ -6,7 +6,7 @@
 
 
 ## Description
-Software criado para a faculdade com o objetivo de otimizar o processo de controle de agendamento de salas.
+Software criado para a faculdade com o objetivo de otimizar o processo de controle de agendamento de salas.<br>
 Veja o Back-End dessa aplicação aqui: https://github.com/diegodld/agendamento-de-salas_backend
 
 <b>Observação:</b> Este projeto está em processo de desenvolvimento.
