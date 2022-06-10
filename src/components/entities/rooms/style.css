@@ -1,4 +1,4 @@
-.container{
+/* .container{
     display: flex;
     flex-direction: column;
     justify-content:center;
@@ -17,19 +17,19 @@ label{
     padding-left: 10px;
 }
 
-.field-name input{
+/* .field-name input{
     margin:10px;
    
     display: inline-block;
+} */
+
+.field-key input {
+  margin: 10px;
+
+  display: inline-block;
 }
 
-.field-key input{
-    margin:10px;
-   
-    display: inline-block;
-}
-
-button{
+/* button{
     margin-top: 5px;
     margin-left: 10px; 
 }
@@ -48,4 +48,4 @@ button{
     width:40px;
     border-radius: 5px;
     padding-bottom: 2px;
-}
+}  */
