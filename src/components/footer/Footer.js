@@ -14,8 +14,8 @@ import { FiYoutube, FiSmartphone } from "react-icons/fi";
 
 export default function Footer() {
   return (
-    <footer id="top-footer" className="container">
-      <div className="container-fluid">
+    <footer id="top-footer">
+      <div className="container">
         <div className="row">
           <div className="col-md-7 contact">
             <h3>Manter contato</h3>

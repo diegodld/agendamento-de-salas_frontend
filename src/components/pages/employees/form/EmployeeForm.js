@@ -1,7 +1,6 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import EmployeeList from "../list/EmployeeList";
 import { RegisterEmployee } from "../controller/EmployeeController.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -13,7 +12,7 @@ export default function EmployeeForm() {
   } = useForm();
 
   return (
-    <div className="container">
+    <div>
       <h2>Cadastro de Funcionário</h2>
       <form onSubmit={handleSubmit(RegisterEmployee)}>
         <section className="field-name">
@@ -44,7 +43,6 @@ export default function EmployeeForm() {
           Cadastrar
         </Button>
       </form>
-      <EmployeeList />
     </div>
   );
 }

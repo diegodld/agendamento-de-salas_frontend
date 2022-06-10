@@ -1,14 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import RoomList from "../list/RoomList";
 import { createRoom } from "../controller/RoomController.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function TeacherForm() {
-  useEffect(() => {
-    document.title = "Salas";
-  }, []);
   const {
     register,
     handleSubmit,
@@ -16,7 +12,7 @@ export default function TeacherForm() {
   } = useForm();
 
   return (
-    <div className="container">
+    <div>
       <h2>Cadastro de Sala</h2>
       <form onSubmit={handleSubmit(createRoom)}>
         <section className="field-name">
@@ -47,8 +43,6 @@ export default function TeacherForm() {
           Cadastrar
         </Button>
       </form>
-
-      <RoomList />
     </div>
   );
 }

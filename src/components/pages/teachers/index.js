@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import TeacherForm from "./form/TeacherForm";
+import TeacherList from "./list/TeacherList";
 
 export default function Teachers() {
-  return <TeacherForm />;
+  useEffect(() => {
+    document.title = "Professores";
+  });
+
+  return (
+    <div className="container">
+      <TeacherForm />
+      <TeacherList />
+    </div>
+  );
 }

@@ -1,33 +1,18 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import axios from "axios";
-import TeacherList from "../list/TeacherList";
 import { createTeacher } from "../controller/teacherController";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function TeacherForm() {
-  useEffect(() => {
-    document.title = "Professores";
-  }, []);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  function onSubmit(data, e) {
-    axios
-      .post("/teachers", data)
-      .then(() => {
-        alert("Dados cadastrados com sucesso!");
-        e.target.reset();
-      })
-      .catch((err) => console.log(err));
-  }
-
   return (
-    <div className="container">
+    <div>
       <h2>Cadastro de Professor</h2>
       <form onSubmit={handleSubmit(createTeacher)}>
         <section className="field-name">
@@ -58,8 +43,6 @@ export default function TeacherForm() {
           Cadastrar
         </Button>
       </form>
-
-      <TeacherList />
     </div>
   );
 }

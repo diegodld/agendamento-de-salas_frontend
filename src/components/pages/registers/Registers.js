@@ -7,6 +7,7 @@ import "./registers.css";
 export default function Registers() {
   const [register, setRegisters] = useState([]);
   useEffect(() => {
+    document.title = "Agendamento de Salas";
     loadRegister();
   }, []);
 

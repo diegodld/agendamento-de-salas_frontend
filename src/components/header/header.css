@@ -9,6 +9,10 @@ header {
   margin-bottom: 16px;
 }
 
+header a {
+  margin: 0;
+}
+
 .logo {
   padding: 0;
 }
