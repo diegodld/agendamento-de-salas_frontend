@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "../../../api/axios";
+import axios from "../../../../api/axios.js";
 import { useEffect, useState } from "react";
 
 export default function SelectTeacher() {

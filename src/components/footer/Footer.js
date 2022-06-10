@@ -25,7 +25,7 @@ export default function Footer() {
                 <i className="slicon-globe">
                   <FaGlobe />
                 </i>
-                <a href="https://ivc.br" target="_blank">
+                <a href="https://ivc.br" target="_blank" rel="noreferrer">
                   https://ivc.br
                 </a>
               </li>
@@ -33,7 +33,7 @@ export default function Footer() {
                 <i className="slicon-phone">
                   <FaPhone />
                 </i>
-                <a href="tel:(27) 3313-0000" target="_blank">
+                <a href="tel:(27) 3313-0000" target="_blank" rel="noreferrer">
                   (27) 3313-0000
                 </a>
               </li>
@@ -41,7 +41,7 @@ export default function Footer() {
                 <i className="slicon-envelope">
                   <FaEnvelope />
                 </i>
-                <a href="mailto:ivc@ivc.br" target="_blank">
+                <a href="mailto:ivc@ivc.br" target="_blank" rel="noreferrer">
                   ivc@ivc.br
                 </a>
               </li>
@@ -55,6 +55,7 @@ export default function Footer() {
                     href="https://www.facebook.com/univc.oficial/?ref=bookmarks"
                     target="_blank"
                     className="facebook btn"
+                    rel="noreferrer"
                   >
                     <i className="slicon-social-facebook">
                       <FaFacebookF />
@@ -67,6 +68,7 @@ export default function Footer() {
                     href="https://twitter.com/univc.oficial"
                     target="_blank"
                     className="twitter btn"
+                    rel="noreferrer"
                   >
                     <i className="slicon-social-twitter">
                       <FaTwitter />
@@ -79,6 +81,7 @@ export default function Footer() {
                     href="https://www.youtube.com/channel/UCs_-q72v6ZrdgjVAPUE6GUQ?view_as=subscriber"
                     target="_blank"
                     className="youtube btn"
+                    rel="noreferrer"
                   >
                     <i className="slicon-social-youtube">
                       <FiYoutube />
@@ -91,6 +94,7 @@ export default function Footer() {
                     href="https://www.instagram.com/univc.oficial/"
                     target="_blank"
                     className="instagram btn"
+                    rel="noreferrer"
                   >
                     <i className="slicon-social-instagram">
                       <FaInstagram />
@@ -103,6 +107,7 @@ export default function Footer() {
                     href="https://api.whatsapp.com/send?phone=55 27 99998-0532"
                     target="_blank"
                     className="whatsapp btn"
+                    rel="noreferrer"
                   >
                     <i className="fa-whatsapp">
                       <FaWhatsapp />

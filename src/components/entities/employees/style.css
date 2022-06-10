@@ -1,51 +1,96 @@
-.container{
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-form{
-    display: flex;
-    flex-direction: column;
-   
-    align-items: flex-start;
-    justify-content: justify;
-    margin-bottom: 50px;
-}
+form {
+  display: flex;
+  flex-direction: column;
 
-label{
-    padding-left: 10px;
+  align-items: flex-start;
+  justify-content: justify;
+  margin-bottom: 50px;
 }
 
-.field-name input{
-    margin:10px;
-   
-    display: inline-block;
+label {
+  padding-left: 10px;
 }
 
-.field-contact input{
-    margin:10px;
-   
-    display: inline-block;
+.field-id input {
+  margin: 10px;
+
+  display: block;
 }
 
-button{
-    margin-top: 5px;
-    margin-left: 10px; 
+.field-name input {
+  margin: 10px;
+
+  display: inline-block;
 }
 
-.bt-edit{
-    background-color:#198754;
-    color: white;
-    width:40px;
-    border-radius: 5px;
-    padding-bottom: 2px;
+.field-contact input {
+  margin: 10px;
+
+  display: inline-block;
 }
 
-.bt-delete{
-    background-color:rgb(238, 36, 36);
-    color: white;
-    width:40px;
-    border-radius: 5px;
-    padding-bottom: 2px;
+button {
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+.bt-edit {
+  background-color: #198754;
+  color: white;
+  width: 40px;
+  border-radius: 5px;
+  padding-bottom: 2px;
+}
+
+.bt-delete {
+  background-color: rgb(238, 36, 36);
+  color: white;
+  width: 40px;
+  border-radius: 5px;
+  padding-bottom: 2px;
+}
+
+.bt-close {
+  cursor: pointer;
+  background-color: white;
+  color: crimson;
+}
+
+.over-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal {
+  position: relative;
+  display: block;
+  width: 400px;
+  height: 400px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  background-color: aliceblue;
+  overflow: hidden;
+}
+
+.ReactModal__Body--open {
+  overflow: hidden;
 }

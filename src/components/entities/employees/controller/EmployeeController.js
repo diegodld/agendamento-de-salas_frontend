@@ -5,8 +5,20 @@ const RegisterEmployee = async (data, e) => {
     await axios.post("/employees", data);
     alert("Dados cadastrados com sucesso!");
     e.target.reset();
+    window.location.reload();
   } catch (erro) {
-    console.log(erro);
+    alert(erro);
+  }
+};
+
+const upadteEmployee = async (data, e) => {
+  try {
+    console.log(data);
+    await axios.put(`employees/`, data);
+    alert("Dados atualizados com sucesso!");
+    e.target.reset();
+  } catch (error) {
+    alert(error);
   }
 };
 
@@ -15,9 +27,10 @@ const deleteEmployee = async (id) => {
     try {
       await axios.delete(`/employees/${id}`);
       alert(`Registro: ${id} excluido com sucesso!`);
+      window.location.reload();
     } catch (erro) {
-      throw erro;
+      alert(erro);
     }
   }
 };
-export { RegisterEmployee, deleteEmployee };
+export { RegisterEmployee, deleteEmployee, upadteEmployee };

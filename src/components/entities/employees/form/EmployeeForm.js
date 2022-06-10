@@ -1,8 +1,8 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { RegisterEmployee } from "../controller/EmployeeController";
 import EmployeeList from "../list/EmployeeList";
+import { RegisterEmployee } from "../controller/EmployeeController.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function EmployeeForm() {
@@ -44,7 +44,6 @@ export default function EmployeeForm() {
           Cadastrar
         </Button>
       </form>
-
       <EmployeeList />
     </div>
   );

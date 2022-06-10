@@ -2,7 +2,9 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import "bootstrap/dist/css/bootstrap.min.css";
-import OptionsTeacher from "./OptionsTeacher.js";
+import OptionsTeacher from "./data/OptionsTeacher.js";
+import OptionsRooms from "./data/OptionsRooms.js";
+import OptionsEmployees from "./data/OptionsEmployees.js";
 
 export default function RegisterForm() {
   const {
@@ -30,24 +32,31 @@ export default function RegisterForm() {
         <section className="field-teacher">
           <label htmlFor="nome">Professor</label>
           <div className="select-teacher">
-            <select {...register("nome", { required: true })}>
+            <select {...register("retirado_por", { required: true })}>
               <OptionsTeacher />
             </select>
           </div>
-          {errors.nome && <p>Insira um nome</p>}
+          {errors.retirado_por && <p>Insira um nome</p>}
         </section>
-        <section className="field-teacher">
+        <section className="field-room">
           <label htmlFor="sala">Sala</label>
-          <div className="input-contact">
-            <input
-              type="text"
-              name="sala"
-              id="telefone"
-              {...register("sala", { required: true })}
-            />
+          <div className="input-room">
+            <select {...register("sala", { required: true })}>
+              <OptionsRooms />
+            </select>
           </div>
           {errors.sala && <p>Insira a sala</p>}
         </section>
+        <section className="field-employee">
+          <label htmlFor="sala">Entregue Por</label>
+          <div className="input-employee">
+            <select {...register("entregue_por", { required: true })}>
+              <OptionsEmployees />
+            </select>
+          </div>
+          {errors.entregue_por && <p>selecione</p>}
+        </section>
+
         <Button type="submit" variant="success">
           Adicionar
         </Button>
