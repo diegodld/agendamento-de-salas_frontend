@@ -14,7 +14,7 @@ const TeacherProvider = ({ children }) => {
   React.useEffect(() => {
     getTeachers();
   }, [getTeachers]);
-
+  console.log("context render");
   return (
     <TeacherContext.Provider value={{ teachers, getTeachers }}>
       {children}

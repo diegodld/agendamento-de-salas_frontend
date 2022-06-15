@@ -2,22 +2,13 @@ import React, { useEffect, useState } from "react";
 import axios from "../../../../api/axios";
 import { Table } from "react-bootstrap";
 import { BsPencilSquare, BsTrash } from "react-icons/bs";
-import { deleteRoom } from "../controller/RoomController";
 import Modal from "./Modal";
+import { RoomContext } from "../context/RoomContext";
 
 export default function RoomList() {
-  const [rooms, setRooms] = useState([]);
+  const { rooms, getRooms } = React.useContext(RoomContext);
   const [data, setData] = useState([]);
   const [showModal, setShowModal] = useState(false);
-
-  const getRooms = async () => {
-    try {
-      const { data } = await axios.get("/rooms");
-      setRooms(data);
-    } catch (error) {
-      alert(error);
-    }
-  };
 
   const edit = async (id) => {
     try {
@@ -29,13 +20,21 @@ export default function RoomList() {
     }
   };
 
+  const deleteRoom = async (id) => {
+    if (window.confirm("Tem certeza que deseja excluir essa sala?")) {
+      try {
+        await axios.delete(`/rooms/${id}`);
+        window.alert(`Registro: ${id} excluido com sucesso!`);
+        getRooms();
+      } catch (error) {
+        alert(error);
+      }
+    }
+  };
+
   const handleClose = () => {
     setShowModal(false);
   };
-
-  useEffect(() => {
-    getRooms();
-  }, []);
 
   return (
     <div>

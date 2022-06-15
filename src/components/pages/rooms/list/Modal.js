@@ -3,9 +3,11 @@ import { useForm } from "react-hook-form";
 import ReactModal from "react-modal";
 import { Button } from "react-bootstrap";
 import { FaWindowClose } from "react-icons/fa";
-import { updateRoom } from "../controller/RoomController.js";
+import { RoomContext } from "../context/RoomContext";
+import axios from "../../../../api/axios";
 
 export default function Modal({ close, show, data }) {
+  const { getRooms } = React.useContext(RoomContext);
   const {
     register,
     handleSubmit,
@@ -22,6 +24,19 @@ export default function Modal({ close, show, data }) {
       });
     }
   }, [reset, data]);
+
+  const updateRoom = async (data, e) => {
+    try {
+      console.log(data);
+      await axios.put(`rooms/`, data);
+      alert("Dados atualizados com sucesso!");
+      e.target.reset();
+      close();
+      getRooms();
+    } catch (error) {
+      alert(error);
+    }
+  };
 
   return (
     <ReactModal

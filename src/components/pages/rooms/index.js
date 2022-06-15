@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 
 import RoomForm from "./form/RoomForm";
 import RoomList from "./list/RoomList";
+import { RoomProvider } from "./context/RoomContext";
 
 export default function Rooms() {
   useEffect(() => {
@@ -10,8 +11,10 @@ export default function Rooms() {
 
   return (
     <div className="container">
-      <RoomForm />
-      <RoomList />
+      <RoomProvider>
+        <RoomForm />
+        <RoomList />
+      </RoomProvider>
     </div>
   );
 }
