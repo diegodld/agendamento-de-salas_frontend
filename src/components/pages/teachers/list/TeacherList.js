@@ -1,24 +1,15 @@
 import React from "react";
 import axios from "../../../../api/axios.js";
-import { useEffect, useState, useCallback } from "react";
+import { useState } from "react";
 import { Table } from "react-bootstrap";
 import { BsPencilSquare, BsTrash } from "react-icons/bs";
-import { deleteTeacher } from "../controller/teacherController";
+import { TeacherContext } from "../context/TeacherContext.js";
 import Modal from "./Modal";
 
 export default function TeacherList() {
-  const [teachers, setTeacher] = useState([]);
+  const { teachers, getTeachers } = React.useContext(TeacherContext);
   const [data, setData] = useState([]);
   const [showModal, setShowModal] = useState(false);
-
-  const getTeachers = useCallback(async () => {
-    const { data } = await axios.get("/teachers");
-    setTeacher(data);
-  }, []);
-
-  useEffect(() => {
-    getTeachers();
-  }, [getTeachers]);
 
   const edit = async (id) => {
     try {
@@ -27,6 +18,19 @@ export default function TeacherList() {
       setShowModal(true);
     } catch (error) {
       alert(error);
+    }
+  };
+
+  const deleteTeacher = async (id) => {
+    if (window.confirm("Tem certeza que deseja excluir esse professor? ")) {
+      try {
+        await axios.delete(`/teachers/${id}`).then((response) => {
+          alert(`Registro: ${id} excluido com sucesso!`);
+          getTeachers();
+        });
+      } catch (error) {
+        alert(error);
+      }
     }
   };
 

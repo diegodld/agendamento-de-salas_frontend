@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import TeacherForm from "./form/TeacherForm";
 import TeacherList from "./list/TeacherList";
+import { TeacherProvider } from "./context/TeacherContext";
 
 export default function Teachers() {
   useEffect(() => {
@@ -9,8 +10,10 @@ export default function Teachers() {
 
   return (
     <div className="container">
-      <TeacherForm />
-      <TeacherList />
+      <TeacherProvider>
+        <TeacherForm />
+        <TeacherList />
+      </TeacherProvider>
     </div>
   );
 }

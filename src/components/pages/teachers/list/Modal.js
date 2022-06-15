@@ -3,9 +3,11 @@ import { useForm } from "react-hook-form";
 import ReactModal from "react-modal";
 import { Button } from "react-bootstrap";
 import { FaWindowClose } from "react-icons/fa";
-import { updateTeacher } from "../controller/teacherController";
+import { TeacherContext } from "../context/TeacherContext";
+import axios from "../../../../api/axios";
 
 export default function Modal({ close, show, data }) {
+  const { getTeachers } = React.useContext(TeacherContext);
   const {
     register,
     handleSubmit,
@@ -22,6 +24,20 @@ export default function Modal({ close, show, data }) {
       });
     }
   }, [reset, data]);
+
+  const updateTeacher = async (data, e) => {
+    try {
+      await axios.put(`teachers/`, data);
+      alert("Dados atualizados com sucesso!");
+      e.target.reset();
+      close();
+      getTeachers();
+    } catch (error) {
+      alert(error);
+    } finally {
+      close();
+    }
+  };
 
   return (
     <ReactModal
