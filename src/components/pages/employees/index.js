@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import EmployeeForm from "./form/EmployeeForm";
 import EmployeerList from "./list/EmployeeList";
+import { EmployeeProvider } from "./context/EmployeeContext";
 
 export default function Employees() {
   useEffect(() => {
@@ -9,8 +10,10 @@ export default function Employees() {
 
   return (
     <div className="container">
-      <EmployeeForm />
-      <EmployeerList />
+      <EmployeeProvider>
+        <EmployeeForm />
+        <EmployeerList />
+      </EmployeeProvider>
     </div>
   );
 }
