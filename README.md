@@ -16,6 +16,12 @@ Veja o Back-End dessa aplicação aqui: https://github.com/diegodld/agendamento-
 
 <b>Observação:</b> Este projeto está em processo de desenvolvimento.
 
+## Tecnologias utilizadas
++ <img align="center" alt="React"  src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E">
++ <img align="center" alt="React"  src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"> 
++ <img align="center" alt="React-router"  src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white"> 
++ <img align="center" alt="Bootstrap"  src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white"> 
+
 ## Available Scripts
 
 In the project directory, you can run:
