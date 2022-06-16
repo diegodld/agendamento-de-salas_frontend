@@ -10,7 +10,7 @@ https://user-images.githubusercontent.com/93009888/174001393-56d157a3-d479-4137-
 
 
 
-## Description
+## Descrição
 Software criado para a faculdade com o objetivo de otimizar o processo de controle de agendamento de salas.<br>
 Veja o Back-End dessa aplicação aqui: https://github.com/diegodld/agendamento-de-salas_backend
 
