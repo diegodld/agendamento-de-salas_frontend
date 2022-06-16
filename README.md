@@ -1,5 +1,6 @@
 # Sistema de Agendamento de salas
 
+## Telas
 <p align="center">
 <img width="auto" src="./public/assets/Readme/preview paginas.gif">
 </p>
