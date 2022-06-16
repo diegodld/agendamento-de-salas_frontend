@@ -1,23 +1,10 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import axios from "../../../../api/axios";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { TeacherContext } from "../context/TeacherContext";
 
 export default function TeacherForm() {
-  const { getTeachers } = React.useContext(TeacherContext);
-
-  const createTeacher = async (data, e) => {
-    try {
-      await axios.post("/teachers", data);
-      window.alert("Dados cadastrados com sucesso!");
-      e.target.reset();
-      getTeachers();
-    } catch (error) {
-      alert(error);
-    }
-  };
+  const { createTeacher } = React.useContext(TeacherContext);
 
   const {
     register,

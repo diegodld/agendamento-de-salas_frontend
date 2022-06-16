@@ -4,10 +4,11 @@ import ReactModal from "react-modal";
 import { Button } from "react-bootstrap";
 import { FaWindowClose } from "react-icons/fa";
 import { TeacherContext } from "../context/TeacherContext";
-import axios from "../../../../api/axios";
 
-export default function Modal({ close, show, data }) {
-  const { getTeachers } = React.useContext(TeacherContext);
+export default function Modal() {
+  const { updateTeacher, showModal, handleCloseModal, oneTeacherData } =
+    React.useContext(TeacherContext);
+
   const {
     register,
     handleSubmit,
@@ -16,40 +17,26 @@ export default function Modal({ close, show, data }) {
   } = useForm();
 
   useEffect(() => {
-    if (data.length !== 0) {
+    if (oneTeacherData) {
       reset({
-        id_professor: data[0].id_professor,
-        nome: data[0].nome,
-        telefone: data[0].telefone,
+        id_professor: oneTeacherData[0].id_professor,
+        nome: oneTeacherData[0].nome,
+        telefone: oneTeacherData[0].telefone,
       });
     }
-  }, [reset, data]);
-
-  const updateTeacher = async (data, e) => {
-    try {
-      await axios.put(`teachers/`, data);
-      alert("Dados atualizados com sucesso!");
-      e.target.reset();
-      close();
-      getTeachers();
-    } catch (error) {
-      alert(error);
-    } finally {
-      close();
-    }
-  };
+  }, [reset, oneTeacherData]);
 
   return (
     <ReactModal
-      isOpen={show}
+      isOpen={showModal}
       ariaHideApp={false}
-      onRequestClose={close}
+      onRequestClose={handleCloseModal}
       className="modal"
       overlayClassName="over-modal"
     >
       <div className="modal-header">
         <h3>Editar Professor</h3>
-        <button onClick={close}>
+        <button onClick={handleCloseModal}>
           <i className="bt-close">
             <FaWindowClose size={30} />
           </i>

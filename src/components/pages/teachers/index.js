@@ -6,7 +6,7 @@ import { TeacherProvider } from "./context/TeacherContext";
 export default function Teachers() {
   useEffect(() => {
     document.title = "Professores";
-  });
+  }, []);
 
   return (
     <div className="container">

@@ -1,42 +1,12 @@
 import React from "react";
-import axios from "../../../../api/axios.js";
-import { useState } from "react";
 import { Table } from "react-bootstrap";
 import { BsPencilSquare, BsTrash } from "react-icons/bs";
 import { TeacherContext } from "../context/TeacherContext.js";
 import Modal from "../form/Modal";
 
 export default function TeacherList() {
-  const { teachers, getTeachers } = React.useContext(TeacherContext);
-  const [data, setData] = useState([]);
-  const [showModal, setShowModal] = useState(false);
-
-  const edit = async (id) => {
-    try {
-      const { data } = await axios.get(`/teachers/${id}`);
-      setData(data);
-      setShowModal(true);
-    } catch (error) {
-      alert(error);
-    }
-  };
-
-  const deleteTeacher = async (id) => {
-    if (window.confirm("Tem certeza que deseja excluir esse professor? ")) {
-      try {
-        await axios.delete(`/teachers/${id}`).then((response) => {
-          alert(`Registro: ${id} excluido com sucesso!`);
-          getTeachers();
-        });
-      } catch (error) {
-        alert(error);
-      }
-    }
-  };
-
-  const handleClose = () => {
-    setShowModal(false);
-  };
+  const { teachers, findAndEditTeacher, deleteTeacher } =
+    React.useContext(TeacherContext);
 
   return (
     <div>
@@ -60,7 +30,7 @@ export default function TeacherList() {
                     <td>
                       <button
                         className="bt-edit"
-                        onClick={() => edit(teacher.id_professor)}
+                        onClick={() => findAndEditTeacher(teacher.id_professor)}
                       >
                         <BsPencilSquare />
                       </button>
@@ -80,7 +50,7 @@ export default function TeacherList() {
           )}
         </tbody>
       </Table>
-      <Modal close={handleClose} show={showModal} data={data} />
+      <Modal />
     </div>
   );
 }
