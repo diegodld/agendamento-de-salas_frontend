@@ -9,49 +9,6 @@ body {
   margin: 0;
 }
 
-.App {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .conteiner h2 {
   margin-top: 16px;
 }
@@ -59,7 +16,6 @@ body {
 form {
   display: flex;
   flex-direction: column;
-
   align-items: flex-start;
   justify-content: justify;
   margin-bottom: 50px;
@@ -71,25 +27,28 @@ form p {
 
 .field-id input {
   margin: 10px 0;
-
+  background-color: #ccc8;
+  width: 50px;
+  border-width: 0.5px;
   display: block;
+  padding: 0 4px;
 }
 
 .field-key input {
   margin: 10px 0;
-
   display: inline-block;
+  padding: 0 4px;
 }
 
 .field-name input {
   margin: 10px 0;
-
+  padding: 0 4px;
   display: inline-block;
 }
 
 .field-contact input {
   margin: 10px 0;
-
+  padding: 0 4px;
   display: inline-block;
 }
 

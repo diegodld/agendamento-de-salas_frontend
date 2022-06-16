@@ -6,6 +6,7 @@ import Teachers from "./components/pages/teachers";
 import Employees from "./components/pages/employees";
 import Rooms from "./components/pages/rooms";
 import Footer from "./components/footer/Footer";
+
 export default function AppRoutes() {
   return (
     <>

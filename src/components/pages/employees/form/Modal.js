@@ -9,7 +9,6 @@ export default function Modal() {
   const { showModal, handleCloseModal, oneEmployeeData, updateEmployee } =
     React.useContext(EmployeeContext);
 
-  console.log(oneEmployeeData);
   const {
     register,
     handleSubmit,
@@ -18,7 +17,7 @@ export default function Modal() {
   } = useForm();
 
   useEffect(() => {
-    if (Boolean(oneEmployeeData)) {
+    if (oneEmployeeData) {
       reset({
         id_funcionario: oneEmployeeData[0].id_funcionario,
         nome: oneEmployeeData[0].nome,
@@ -50,7 +49,6 @@ export default function Modal() {
             id="id"
             type="text"
             readOnly={true}
-            autoFocus={true}
             {...register("id_funcionario", { required: true })}
           />
         </section>
@@ -61,6 +59,7 @@ export default function Modal() {
               type="text"
               name="nome"
               id="nome"
+              autoFocus={true}
               {...register("nome", { required: true })}
             />
           </div>
