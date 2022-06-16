@@ -1,10 +1,11 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { RegisterEmployee } from "../controller/EmployeeController.js";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { EmployeeContext } from "../context/EmployeeContext.js";
 
 export default function EmployeeForm() {
+  const { createEmployee } = React.useContext(EmployeeContext);
+
   const {
     register,
     handleSubmit,
@@ -14,7 +15,7 @@ export default function EmployeeForm() {
   return (
     <div>
       <h2>Cadastro de Funcionário</h2>
-      <form onSubmit={handleSubmit(RegisterEmployee)}>
+      <form onSubmit={handleSubmit(createEmployee)}>
         <section className="field-name">
           <label htmlFor="nome">Nome</label>
           <div className="input-name">

@@ -3,9 +3,13 @@ import { useForm } from "react-hook-form";
 import ReactModal from "react-modal";
 import { Button } from "react-bootstrap";
 import { FaWindowClose } from "react-icons/fa";
-import { upadteEmployee } from "../controller/EmployeeController";
+import { EmployeeContext } from "../context/EmployeeContext";
 
-export default function Modal({ close, show, data }) {
+export default function Modal() {
+  const { showModal, handleCloseModal, oneEmployeeData, updateEmployee } =
+    React.useContext(EmployeeContext);
+
+  console.log(oneEmployeeData);
   const {
     register,
     handleSubmit,
@@ -14,32 +18,32 @@ export default function Modal({ close, show, data }) {
   } = useForm();
 
   useEffect(() => {
-    if (data.length !== 0) {
+    if (Boolean(oneEmployeeData)) {
       reset({
-        id_funcionario: data[0].id_funcionario,
-        nome: data[0].nome,
-        telefone: data[0].telefone,
+        id_funcionario: oneEmployeeData[0].id_funcionario,
+        nome: oneEmployeeData[0].nome,
+        telefone: oneEmployeeData[0].telefone,
       });
     }
-  }, [reset, data]);
+  }, [reset, oneEmployeeData]);
 
   return (
     <ReactModal
-      isOpen={show}
+      isOpen={showModal}
       ariaHideApp={false}
-      onRequestClose={close}
+      onRequestClose={handleCloseModal}
       className="modal"
       overlayClassName="over-modal"
     >
       <div className="modal-header">
         <h3>Editar Funcionário</h3>
-        <button onClick={close}>
+        <button onClick={handleCloseModal}>
           <i className="bt-close">
             <FaWindowClose size={30} />
           </i>
         </button>
       </div>
-      <form onSubmit={handleSubmit(upadteEmployee)}>
+      <form onSubmit={handleSubmit(updateEmployee)}>
         <section className="field-id">
           <label htmlFor="id">ID </label>
           <input

@@ -1,40 +1,43 @@
 import React from "react";
-import axios from "../../../../api/axios.js";
-import { useEffect, useState, useCallback } from "react";
+
 import { Table } from "react-bootstrap";
 import { BsPencilSquare, BsTrash } from "react-icons/bs";
-import { deleteEmployee } from "../controller/EmployeeController.js";
+
 import Modal from "../form/Modal.js";
+import { EmployeeContext } from "../context/EmployeeContext.js";
 
 export default function EmployeerList() {
-  const [employees, setEmployees] = useState([]);
-  const [data, setData] = useState([]);
-  const [showModal, setShowModal] = useState(false);
+  const { employees, findAndEdit, deleteEmployee } =
+    React.useContext(EmployeeContext);
 
-  const getEmployees = useCallback(async () => {
-    const { data } = await axios.get("/employees");
-    setEmployees(data);
-  }, []);
+  // const [employees, setEmployees] = useState([]);
+  // const [data, setData] = useState([]);
+  // const [showModal, setShowModal] = useState(false);
 
-  useEffect(() => {
-    getEmployees();
-  }, [getEmployees]);
+  // const getEmployees = useCallback(async () => {
+  //   const { data } = await axios.get("/employees");
+  //   setEmployees(data);
+  // }, []);
 
-  const edit = async (id) => {
-    const response = await axios.get(`employees/${id}`);
-    const { data } = response;
-    setData(data);
-    console.log(data);
-  };
+  // useEffect(() => {
+  //   getEmployees();
+  // }, [getEmployees]);
 
-  const handleEdit = (id) => {
-    setShowModal(true);
-    edit(id);
-  };
+  // const edit = async (id) => {
+  //   const response = await axios.get(`employees/${id}`);
+  //   const { data } = response;
+  //   setData(data);
+  //   console.log(data);
+  // };
 
-  const handleClose = () => {
-    setShowModal(false);
-  };
+  // const handleEdit = (id) => {
+  //   setShowModal(true);
+  //   edit(id);
+  // };
+
+  // const handleClose = () => {
+  //   setShowModal(false);
+  // };
 
   return (
     <div>
@@ -58,7 +61,7 @@ export default function EmployeerList() {
                     <td>
                       <button
                         className="bt-edit"
-                        onClick={() => handleEdit(employee.id_funcionario)}
+                        onClick={() => findAndEdit(employee.id_funcionario)}
                       >
                         <BsPencilSquare />
                       </button>
@@ -78,7 +81,7 @@ export default function EmployeerList() {
           )}
         </tbody>
       </Table>
-      <Modal close={handleClose} show={showModal} data={data} />
+      <Modal />
     </div>
   );
 }
