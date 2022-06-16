@@ -1,8 +1,12 @@
 # Sistema de Agendamento de salas
 
 <p align="center">
-<img width="auto" src="./public/assets/Readme/preview agendamento salas.gif">
+<img width="auto" src="./public/assets/Readme/preview paginas.gif">
 </p>
+
+
+## CRUD
+https://user-images.githubusercontent.com/93009888/174001393-56d157a3-d479-4137-a012-d1c679f97d34.mp4
 
 
 ## Description
