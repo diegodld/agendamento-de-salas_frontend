@@ -20,34 +20,29 @@ export default function TeacherList() {
           </tr>
         </thead>
         <tbody>
-          {teachers ? (
-            teachers.map((teacher) => {
-              return (
-                <>
-                  <tr key={teacher.id_professor}>
-                    <td>{teacher.nome}</td>
-                    <td>{teacher.telefone}</td>
-                    <td>
-                      <button
-                        className="bt-edit"
-                        onClick={() => findAndEditTeacher(teacher.id_professor)}
-                      >
-                        <BsPencilSquare />
-                      </button>
-                      <button
-                        className="bt-delete"
-                        onClick={() => deleteTeacher(teacher.id_professor)}
-                      >
-                        <BsTrash />
-                      </button>
-                    </td>
-                  </tr>
-                </>
-              );
-            })
-          ) : (
-            <p>Loading teachers...</p>
-          )}
+          {teachers &&
+            teachers.map((teacher) => (
+              <>
+                <tr key={teacher.id_professor}>
+                  <td>{teacher.nome}</td>
+                  <td>{teacher.telefone}</td>
+                  <td>
+                    <button
+                      className="bt-edit"
+                      onClick={() => findAndEditTeacher(teacher.id_professor)}
+                    >
+                      <BsPencilSquare />
+                    </button>
+                    <button
+                      className="bt-delete"
+                      onClick={() => deleteTeacher(teacher.id_professor)}
+                    >
+                      <BsTrash />
+                    </button>
+                  </td>
+                </tr>
+              </>
+            ))}
         </tbody>
       </Table>
       <Modal />

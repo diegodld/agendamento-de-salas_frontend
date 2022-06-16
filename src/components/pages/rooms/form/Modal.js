@@ -4,10 +4,11 @@ import ReactModal from "react-modal";
 import { Button } from "react-bootstrap";
 import { FaWindowClose } from "react-icons/fa";
 import { RoomContext } from "../context/RoomContext";
-import axios from "../../../../api/axios";
 
-export default function Modal({ close, show, data }) {
-  const { getRooms } = React.useContext(RoomContext);
+export default function Modal() {
+  const { updateRoom, oneRoomData, handleCloseModal, showModal } =
+    React.useContext(RoomContext);
+
   const {
     register,
     handleSubmit,
@@ -16,39 +17,26 @@ export default function Modal({ close, show, data }) {
   } = useForm();
 
   useEffect(() => {
-    if (data.length !== 0) {
+    if (oneRoomData) {
       reset({
-        id_sala: data[0].id_sala,
-        nome: data[0].nome,
-        chave: data[0].chave,
+        id_sala: oneRoomData[0].id_sala,
+        nome: oneRoomData[0].nome,
+        chave: oneRoomData[0].chave,
       });
     }
-  }, [reset, data]);
-
-  const updateRoom = async (data, e) => {
-    try {
-      console.log(data);
-      await axios.put(`rooms/`, data);
-      alert("Dados atualizados com sucesso!");
-      e.target.reset();
-      close();
-      getRooms();
-    } catch (error) {
-      alert(error);
-    }
-  };
+  }, [reset, oneRoomData]);
 
   return (
     <ReactModal
-      isOpen={show}
+      isOpen={showModal}
       ariaHideApp={false}
-      onRequestClose={close}
+      onRequestClose={handleCloseModal}
       className="modal"
       overlayClassName="over-modal"
     >
       <div className="modal-header">
         <h3>Editar Sala</h3>
-        <button onClick={close}>
+        <button onClick={handleCloseModal}>
           <i className="bt-close">
             <FaWindowClose size={30} />
           </i>
@@ -61,7 +49,6 @@ export default function Modal({ close, show, data }) {
             id="id"
             type="text"
             readOnly={true}
-            autoFocus={true}
             {...register("id_sala", { required: true })}
           />
         </section>
@@ -72,6 +59,7 @@ export default function Modal({ close, show, data }) {
               type="text"
               name="nome"
               id="nome"
+              autoFocus={true}
               {...register("nome", { required: true })}
             />
           </div>

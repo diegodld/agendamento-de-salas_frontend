@@ -2,28 +2,16 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import "bootstrap/dist/css/bootstrap.min.css";
-import axios from "../../../../api/axios";
 import { RoomContext } from "../context/RoomContext";
 
 export default function TeacherForm() {
-  const { getRooms } = React.useContext(RoomContext);
+  const { createRoom } = React.useContext(RoomContext);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-
-  const createRoom = async (data, e) => {
-    try {
-      await axios.post("/rooms", data);
-      window.alert("Dados cadastrados com sucesso!");
-      e.target.reset();
-      getRooms();
-    } catch (error) {
-      alert(error);
-    }
-  };
 
   return (
     <div>

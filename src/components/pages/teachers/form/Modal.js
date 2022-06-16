@@ -49,7 +49,6 @@ export default function Modal() {
             id="id"
             type="text"
             readOnly={true}
-            autoFocus={true}
             {...register("id_professor", { required: true })}
           />
         </section>
@@ -60,6 +59,7 @@ export default function Modal() {
               type="text"
               name="nome"
               id="nome"
+              autoFocus={true}
               {...register("nome", { required: true })}
             />
           </div>
