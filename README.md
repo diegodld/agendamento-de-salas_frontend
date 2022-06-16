@@ -1,13 +1,13 @@
 # Sistema de Agendamento de salas
 
 ## Telas
-<p align="center">
-<img width="auto" src="./public/assets/Readme/preview paginas.gif">
-</p>
+![preview paginas](https://user-images.githubusercontent.com/93009888/174004854-55052a18-c59d-41c2-a4e0-5aca92996bf5.gif)
+
 
 
 ## CRUD
 https://user-images.githubusercontent.com/93009888/174001393-56d157a3-d479-4137-a012-d1c679f97d34.mp4
+
 
 
 ## Description
