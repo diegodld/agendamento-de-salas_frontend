@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "../../../../api/axios";
 import { Table } from "react-bootstrap";
 import { BsPencilSquare, BsTrash } from "react-icons/bs";
-import Modal from "./Modal";
+import Modal from "../form/Modal";
 import { RoomContext } from "../context/RoomContext";
 
 export default function RoomList() {

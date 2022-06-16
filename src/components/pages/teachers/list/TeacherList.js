@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Table } from "react-bootstrap";
 import { BsPencilSquare, BsTrash } from "react-icons/bs";
 import { TeacherContext } from "../context/TeacherContext.js";
-import Modal from "./Modal";
+import Modal from "../form/Modal";
 
 export default function TeacherList() {
   const { teachers, getTeachers } = React.useContext(TeacherContext);
